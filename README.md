@@ -5,10 +5,6 @@
 AppRater is a library for Android designed to facilitate easy prompting of users to rate your app within the Google Play store or Amazon App Store.
 It won't prompt until at least 3 days or 7 uses of the app has passed and if the user chooses to rate later the count will start again.
 
-AppRater inherits your themeing so can be used with light or dark variants as seen here;
-
-![Example Image Dark][1] ![Example Image Light][2]
-
 To use simply add the library to your app and make one call within your onCreate method as follows;
 
 `AppRater.app_launched(this);`
@@ -18,7 +14,6 @@ There are several options you can also use to change the default behavior.
 You can use the overriden method to specify your own day and launch count parameters.
 `setVersionCodeCheckEnabled` or `setVersionNameCheckEnabled` enable version checking, which will re-enable the prompt count if a new version is installed.
 `isNoButtonVisible` will disable the No Thanks button, forcing the user to either rate or prompt later.
-`setDarkTheme` and `setLightTheme` enable manual control over the theme the dialog uses, overriding your application default.
 
 By default this will link to the Google Play store.  You can optionally set an alternate market by using;
 

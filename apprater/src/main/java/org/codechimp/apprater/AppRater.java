@@ -231,7 +231,7 @@ public class AppRater {
      */
     @SuppressLint("NewApi")
     private static void showRateAlertDialog(final Context context, final SharedPreferences.Editor editor) {
-        Builder builder = new AlertDialog.Builder(context, android.R.style.Theme_Material_Dialog);
+        Builder builder = new AlertDialog.Builder(context);
         ApplicationRatingInfo ratingInfo = ApplicationRatingInfo.createApplicationInfo(context);
         builder.setTitle(String.format(context.getString(R.string.apprater_dialog_title), ratingInfo.getApplicationName()));
 
