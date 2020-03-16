@@ -4,10 +4,10 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion 8
-        targetSdkVersion 27
-        versionName project.VERSION_NAME
-        versionCode Integer.parseInt(project.VERSION_CODE)
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionName "1.0.0"
+        versionCode 1
     }
 
     // This is important, it will run lint checks but won't abort build
@@ -15,6 +15,3 @@ android {
         abortOnError false
     }
 }
-
-// Used to update in Maven
-apply from: '../maven_push.gradle'
