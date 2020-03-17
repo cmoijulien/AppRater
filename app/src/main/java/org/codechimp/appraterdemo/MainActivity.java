@@ -1,6 +1,5 @@
 package org.codechimp.appraterdemo;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -9,9 +8,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import org.codechimp.apprater.AppRater;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
 
 	private Button buttonTest;
 

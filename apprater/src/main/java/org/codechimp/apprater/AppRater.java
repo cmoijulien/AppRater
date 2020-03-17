@@ -1,19 +1,18 @@
 package org.codechimp.apprater;
 
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.util.Log;
 import android.view.Gravity;
 import android.widget.Button;
 import android.widget.LinearLayout;
+
+import androidx.annotation.StyleRes;
+import androidx.appcompat.app.AlertDialog;
 
 public class AppRater {
     // Preference Constants
@@ -36,6 +35,9 @@ public class AppRater {
     private static boolean isVersionCodeCheckEnabled;
     private static boolean isCancelable = true;
 
+    @StyleRes
+    private static int themeResId = 0;
+
     private static String packageName;
 
     private static Market market = new GoogleMarket();
@@ -47,6 +49,14 @@ public class AppRater {
      */
     public static void setVersionNameCheckEnabled(boolean versionNameCheck) {
         isVersionNameCheckEnabled = versionNameCheck;
+    }
+
+    /**
+     * Custom alert dialog theme
+     * @param themeResId
+     */
+    public static void setThemeResId(int themeResId) {
+        AppRater.themeResId = themeResId;
     }
 
     /**
@@ -168,7 +178,7 @@ public class AppRater {
         long launch_count = prefs.getLong(PREF_LAUNCH_COUNT, 0) + 1;
         editor.putLong(PREF_LAUNCH_COUNT, launch_count);
         // Get date of first launch
-        Long date_firstLaunch = prefs.getLong(PREF_FIRST_LAUNCHED, 0);
+        long date_firstLaunch = prefs.getLong(PREF_FIRST_LAUNCHED, 0);
         if (date_firstLaunch == 0) {
             date_firstLaunch = System.currentTimeMillis();
             editor.putLong(PREF_FIRST_LAUNCHED, date_firstLaunch);
@@ -188,7 +198,7 @@ public class AppRater {
      * @param context
      */
     public static void showRateDialog(final Context context) {
-        showRateAlertDialog(context, null);
+        showRateAlertDialog(context,null);
     }
 
     /**
@@ -231,7 +241,7 @@ public class AppRater {
      */
     @SuppressLint("NewApi")
     private static void showRateAlertDialog(final Context context, final SharedPreferences.Editor editor) {
-        Builder builder = new AlertDialog.Builder(context);
+        AlertDialog.Builder builder = new AlertDialog.Builder(context, themeResId);
         ApplicationRatingInfo ratingInfo = ApplicationRatingInfo.createApplicationInfo(context);
         builder.setTitle(String.format(context.getString(R.string.apprater_dialog_title), ratingInfo.getApplicationName()));
 
@@ -317,11 +327,7 @@ public class AppRater {
 
     @SuppressLint("NewApi")
     private static void commitOrApply(SharedPreferences.Editor editor) {
-        if (Build.VERSION.SDK_INT > 8) {
-            editor.apply();
-        } else {
-            editor.commit();
-        }
+        editor.apply();
     }
 
     public static void resetData(Context context) {
