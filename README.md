@@ -1,7 +1,5 @@
 # AppRater
 
-## Due to lack of available time to thoroughly regression test improvements, other than translations no pull requests will be merged into this project.
-
 AppRater is a library for Android designed to facilitate easy prompting of users to rate your app within the Google Play store or Amazon App Store.
 It won't prompt until at least 3 days or 7 uses of the app has passed and if the user chooses to rate later the count will start again.
 
@@ -29,11 +27,19 @@ Try out the demo within this repository.
 
 ## Gradle
 
-AppRater is now pushed to Maven Central as an AAR, so you just need to add the following dependency to your `build.gradle`.
-    
-    dependencies {
-        compile 'com.github.codechimp-org.apprater:library:1.0.+'
-    }
+Add it in your root build.gradle at the end of repositories:
+
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+Step 2. Add the dependency
+
+	dependencies {
+	        implementation 'com.github.cmoijulien:AppRater:1.0.1'
+	}
 
 ## Translations
 
@@ -46,35 +52,3 @@ If you would like to help localise this library please fork the project, create 
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-
-## Developed By
-
-Andrew Jackson <andrew@codechimp.org>
-
-Google+ profile: 
-[https://plus.google.com/+AndrewJacksonUK](https://plus.google.com/+AndrewJacksonUK)
-
-Adapted from a snippet originally posted [here](http://www.androidsnippets.com/prompt-engaged-users-to-rate-your-app-in-the-android-market-appirater)
-
-## License
-
-    Copyright 2013-2017 Andrew Jackson
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-
-
-
-
-
- [1]: https://raw.github.com/codechimp-org/AppRater/master/Screenshots/demo-dark.png
- [2]: https://raw.github.com/codechimp-org/AppRater/master/Screenshots/demo-light.png
