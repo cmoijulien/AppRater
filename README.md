@@ -1,3 +1,5 @@
+![JitPack](https://jitpack.io/v/cmoijulien/AppRater.svg)
+
 # AppRater
 
 AppRater is a library for Android designed to facilitate easy prompting of users to rate your app within the Google Play store or Amazon App Store.
@@ -41,7 +43,7 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        implementation 'com.github.cmoijulien:apprater:1.0.2'
+		implementation 'com.github.cmoijulien:AppRater:1.0.2'
 	}
 
 ## Translations
