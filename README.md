@@ -1,4 +1,4 @@
-![JitPack](https://jitpack.io/v/cmoijulien/AppRater.svg)
+[![](https://jitpack.io/v/cmoijulien/AppRater.svg)](https://jitpack.io/#cmoijulien/AppRater)
 
 # AppRater
 
